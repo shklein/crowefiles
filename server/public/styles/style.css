@@ -1,0 +1,23 @@
+body {
+  background-color: lightblue;
+}
+h1 {
+  text-align: center;
+}
+
+.pics {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 200px;
+  width: auto;
+}
+
+#images {
+  text-align: center;
+}
+
+.enter {
+  margin-top: 20px;
+  text-align: center;
+}
