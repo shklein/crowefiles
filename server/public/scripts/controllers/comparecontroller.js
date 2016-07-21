@@ -11,7 +11,8 @@ getCrowe();
 
 function getCrowe() {
   var crowe = 'russell crowe';
-  var query = baseURL + crowe + key;
+  var credits = '/movie_credits/'
+  var query = baseURL + crowe + credits + key;
     console.log(query);
 
 

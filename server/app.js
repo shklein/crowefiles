@@ -1,21 +1,28 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
 var path = require('path');
-var data = require('./routes/data');
+var bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use('/data', data);
 
-//Catch-all route
+// modules
+var data = require('./routes/data')
+var index = require('./routes/index');
+
+
+
+
+// middleware
 app.use(express.static(path.join(__dirname, './public')));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// express routes
+app.use('/data', data);
+app.use('/', index);
 
 
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, './public/views/index.html'));
-})
-
+// start server
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function () {
-  console.log('Listening on port ', app.get('port'));
+  console.log('listening on port ', app.get('port'));
 });
